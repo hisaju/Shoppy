@@ -1,0 +1,43 @@
+# configuration file for development environment
+
+# the logger engine to use
+# console: log messages to STDOUT (your console where you started the
+#          application server)
+# file:    log message to a file in log/
+logger: "file"
+
+# the log level for this environement
+# core is the lowest, it shows Dancer's core log messages as well as yours
+# (debug, warning and error)
+log: 'debug'
+log_path: "../log"
+
+# should Dancer consider warnings as critical errors?
+warnings: 1
+
+# should Dancer show a stacktrace when an error is caught?
+show_errors: 1
+
+# auto_reload is a development and experimental feature
+# you should enable it by yourself if you want it
+# Module::Refresh is needed 
+# 
+# Be aware it's unstable and may cause a memory leak.
+# DO NOT EVER USE THAT FEATURE IN PRODUCTION 
+# OR TINY KITTENS SHALL DIE WITH LOTS OF SUFFERING
+auto_reload: 0
+plugins:
+    "Auth::Twitter":
+        callback_url:     "http://[ENTER YOUR USER NAME].event.ngigroup.com/auth/twitter/callback"
+        consumer_key:     "[ENTER YOUR TWITTER CONSUMER_KEY]"
+        consumer_secret:  "[ENTER YOUR TWITTER CONSUMER_SECRET_KEY]"
+        callback_success: "/"
+        callback_fail:    "/fail"
+    Database:
+        driver: "SQLite"
+        database: "../shared/shoppy.db"
+
+Amazon:
+    associate_tag: "[ENTER YOUR AMAZON ASSOCIATE_TAG]"
+    token: "[ENTER YOUR AMAZON API TOKEN]"
+    secret_key: "[ENTER YOUR AMAZON API SECRET_KEY]"

@@ -1,0 +1,28 @@
+[% WRAPPER "layouts/login_content.tt" %]
+<div id="searchbox">
+<div id="question">今、何欲しい！？</div>
+<form action="/search" method="post">
+<input type="text" name="word" value="[% word | html %]">
+<input type="submit" value="検索">
+</form>
+</div>
+<br />
+<br />
+
+<table id="result">
+[% FOREACH item IN items %]
+<tr>
+<td>[% IF item.MediumImage.URL %]<img src="[% item.MediumImage.URL %]" />[% ELSE %]画像はありません[% END %]</td>
+<td>[% item.ItemAttributes.Title | html %] - ￥[% item.ItemAttributes.ListPrice.Amount | html %]</td>
+<td>
+<form action="/publish" method="post">
+<input type="hidden" name="asin" value="[% item.ASIN %]" />
+<textarea name="comment"></textarea>
+<input type="submit" value="投稿" />
+</form>
+</td>
+</tr>
+[% END %]
+</table>
+
+[% END %]

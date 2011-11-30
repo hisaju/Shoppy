@@ -1,0 +1,8 @@
+[% FOREACH item IN list %]
+<div>
+<img src="[% item.image_url %]">
+<a href="[% item.url %]">[% item.title | html %]</a> - ￥[% item.price %]<br/>
+[% item.comment | html %]
+</div>
+<br />
+[% END %]

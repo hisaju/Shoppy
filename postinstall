@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ln -s ../../shared .
+
+sqlite3 ../../shared/shoppy.db < db/create_table.sql

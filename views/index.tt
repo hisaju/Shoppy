@@ -1,0 +1,20 @@
+[% WRAPPER "layouts/login_content.tt" %]
+
+<div id="searchbox">
+<div id="question">今、何欲しい！？</div>
+<form action="/search" method="post">
+<input type="text" name="word">
+<input type="submit" value="検索">
+</form>
+</div>
+
+[% FOREACH item IN list %]
+<div id="result">
+[% item.asin %]
+<img src="[% item.image_url %]">
+<a href="[% item.url %]">[% item.title | html %]</a> - ￥[% item.price %]<br/>
+[% item.comment | html %]
+</div>
+<br />
+[% END %]
+[% END %]

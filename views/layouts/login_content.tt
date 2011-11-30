@@ -1,0 +1,17 @@
+<div id="left">
+[% content %]
+</div>
+<div id="right">
+<img src="/images/greedy_sidebar_plof.png" />
+<div id="user_profile">
+<div id="profile_image">
+<img src="[% session.twitter_user.profile_image_url %]">
+</div>
+<div id="profile_description">
+<div>@[% session.twitter_user.screen_name | html %]</div>
+<div>[% session.twitter_user.name | html %]</div>
+</div>
+</div>
+<img src="/images/greedy_sidebar_under.png" />
+</div>
+<br clear="all">
